@@ -2,7 +2,7 @@
 The YouTube Playlist Organizer is a Python program designed to assist in organizing your learning journey when studying from large YouTube playlists. It automates the process of categorizing and organizing videos based on their subjects, making it easier to track your progress and access specific videos within the playlist.
 
 # Introduction
-As a Data Science and Machine Learning enthusiast, I often found it challenging to keep up with my progress while studying from large YouTube playlists, such as the **Alex The Analyst Bootcamp**. It became difficult to remember which video I had last watched, leading to wasted time searching for the next video or revisiting ones unnecessarily. To solve this problem, I developed the YouTube Playlist Organizer, which utilizes the YouTube Data API to fetch video details and organizes them into a structured study guide.
+As a Data Science and Machine Learning enthusiast, I often found it challenging to keep up with my progress while studying from large YouTube playlists, such as the **Alex The Analyst Bootcamp** (https://www.youtube.com/watch?v=rGx1QNdYzvs&list=PLUaB-1hjhk8FE_XZ87vPPSfHqb6OcM0cF). It became difficult to remember which video I had last watched, leading to wasted time searching for the next video or revisiting ones unnecessarily. To solve this problem, I developed the YouTube Playlist Organizer, which utilizes the YouTube Data API to fetch video details and organizes them into a structured study guide.
 
 <p align="center">
   <img src="localhost_8505_.png" alt="App Screenshot">
