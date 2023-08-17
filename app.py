@@ -31,7 +31,9 @@ def main():
     repetitive_terms = [term.strip().upper() for term in repetitive_terms.split(',')]
 
     if st.button("Organize Videos"):
-        organize_videos(playlist_url, repetitive_terms)
+        organized_doc = organize_videos(playlist_url, repetitive_terms)
+        st.markdown(get_download_link(organized_doc), unsafe_allow_html=True)
+        display_organized_videos(organized_doc)
 
 def organize_videos(playlist_url, repetitive_terms):
     # Create a Word document
@@ -112,8 +114,17 @@ def organize_videos(playlist_url, repetitive_terms):
                 doc.add_paragraph(f"{group}.{count} {video['title']} - {video['url']}")
                 count += 1
 
-    # Save the document
+    return doc
+
+def get_download_link(doc):
     doc.save("organized_videos.docx")
+    doc_download_link = f'<a href="organized_videos.docx" download>Click here to download the organized videos document</a>'
+    return doc_download_link
+
+def display_organized_videos(doc):
+    st.subheader("Organized Videos")
+    for paragraph in doc.paragraphs:
+        st.write(paragraph.text)
 
 if __name__ == "__main__":
     main()
