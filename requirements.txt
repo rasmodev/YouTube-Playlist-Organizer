@@ -1,0 +1,4 @@
+google_api_python_client==2.91.0
+python-dotenv==1.0.0
+python_docx==0.8.11
+streamlit==1.25.0
