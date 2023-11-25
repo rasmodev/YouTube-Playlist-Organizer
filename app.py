@@ -1,8 +1,4 @@
 # Installations
-# Make sure to install the required packages in your Streamlit environment
-# You can use the following commands:
-# !pip install streamlit google-api-python-client python-docx python-dotenv
-
 import streamlit as st
 from dotenv import dotenv_values
 from googleapiclient.discovery import build
