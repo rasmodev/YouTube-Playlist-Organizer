@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy your FastAPI application code into the container
 COPY ./app.py /app
 
+# Copy the .env file containing the API Key into the container 
+COPY ./.env /app
 # Copy the requirements.txt file into the container
 COPY ./requirements.txt /app
 
