@@ -17,17 +17,43 @@ api_key = my_api_key
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 def main():
+    # Page title 
     st.title("YouTube Playlist Video Organizer")
+    
+    # Add welcome message
+    st.markdown("""
+    
+        Welcome to the YouTube Playlist Video Organizer app! 
+        This tool helps you organize videos in a YouTube playlist based on repetitive terms.
+    """)
 
+    # Add Banner Image 
+    st.image("main.jpg")
+    
+    # Add sidebar with additional details
+    st.sidebar.markdown("""
+        **How to Use:**
+        - Enter the playlist URL.
+        - Specify repetitive terms (comma-separated).
+        - Click the "Organize Videos" button.
+        - Download the organized videos document.
+        Enjoy organizing your YouTube playlist effortlessly!
+    """)
+        
+    # Guide users to replace default values with their own link and repetitive terms
+    st.write("_Replace the default values with your own playlist URL and repetitive terms._")
+    
     # Get the playlist URL from the user
-    playlist_url = st.text_input("Enter the playlist URL:")
-
+    playlist_url = st.text_input("**Enter the playlist URL:**", value="https://www.youtube.com/watch?v=rGx1QNdYzvs&list=PLUaB-1hjhk8FE_XZ87vPPSfHqb6OcM0cF")
+    
     # Get repetitive terms from the user
-    repetitive_terms = st.text_input("Enter repetitive terms (comma-separated):")
+    repetitive_terms = st.text_input("**Enter repetitive terms (comma-separated):**", value="Excel, Sql, Power Bi, Tableau, Python")
     repetitive_terms = [term.strip().upper() for term in repetitive_terms.split(',')]
 
-    if st.button("Organize Videos"):
+    # Add an organize videos button
+    if st.button("**Organize Videos**"):
         organized_doc = organize_videos(playlist_url, repetitive_terms)
+        # Provide a download link for the generated document
         st.markdown(get_download_link(organized_doc), unsafe_allow_html=True)
         display_organized_videos(organized_doc)
 
@@ -113,8 +139,10 @@ def organize_videos(playlist_url, repetitive_terms):
     return doc
 
 def get_download_link(doc):
-    doc.save("organized_videos.docx")
-    doc_download_link = f'<a href="organized_videos.docx" download>Click here to download the organized videos document</a>'
+    # Save the document to a specific directory
+    doc.save("/app/documents/organized_videos.docx")
+    # Provide a download link for the document
+    doc_download_link = f'<a href="/app/documents/organized_videos.docx" download>Click here to download the organized videos document</a>'
     return doc_download_link
 
 def display_organized_videos(doc):
